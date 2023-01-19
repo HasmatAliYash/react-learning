@@ -1,15 +1,15 @@
 import React from "react";
-import Lion from "../Animals/Lion";
-import Elephant from "../Animals/Elephant";
-import Bear from "../Animals/Bear";
-import Cheetah from "../Animals/Cheetah";
-import Rabbit from "../Animals/Rabbit";
+import Lion from "../../Day1/Animals/Lion";
+import Elephant from "../../Day1/Animals/Elephant";
+import Bear from "../../Day1/Animals/Bear";
+import Cheetah from "../../Day1/Animals/Cheetah";
+import Rabbit from "../../Day1/Animals/Rabbit";
 
-import Crow from "../Birds/Crow";
-import Eagle from "../Birds/Eagle";
-import Parrot from "../Birds/Parrot";
-import Sparrow from "../Birds/Sparrow";
-import Woodpecker from "../Birds/Woodpecker";
+import Crow from "../../Day1/Birds/Crow";
+import Eagle from "../../Day1/Birds/Eagle";
+import Parrot from "../../Day1/Birds/Parrot";
+import Sparrow from "../../Day1/Birds/Sparrow";
+import Woodpecker from "../../Day1/Birds/Woodpecker";
 
 export default class Kingdom extends React.Component {
   render() {

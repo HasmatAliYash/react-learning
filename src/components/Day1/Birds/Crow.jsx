@@ -1,7 +1,9 @@
-export default function Crow() {
+import PropTypes from 'prop-types'
+
+export default function Crow(props) {
   return (
     <>
-      <h3> Crow </h3>
+      <h3>{props.birdName}</h3>
       <p>
         A crow is a bird of the genus Corvus, or more broadly a synonym for all
         of Corvus. Crows are generally black in colour. The word "crow" is used
@@ -10,4 +12,9 @@ export default function Crow() {
       </p>
     </>
   );
+}
+
+Crow.prototype = {birdName: PropTypes.string.isRequired}
+Crow.defaultProps = {
+  birdName: 'Croweeeeee'
 }
