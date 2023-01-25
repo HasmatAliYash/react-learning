@@ -1,14 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
+import Table from "react-bootstrap/Table";
 
-export default function Users() {
-  const userDetails =
-    "Krishna is an Full stack developer having 5 years of experience with Java and React";
-  const [user] = useState("Krishna");
-  const [description] = useState(userDetails);
+export default function Users(props) {
   return (
     <div>
-      <h2>{user}</h2>
-      <p>{description}</p>
+      <Table striped bordered hover size="sm">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>User Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {props.users.map((user, index) => (
+            <tr key={index}>
+              <td>{user.id}</td>
+              <td>{user.name}</td>
+              <td>{user.username}</td>
+              <td>{user.email}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
     </div>
   );
 }
