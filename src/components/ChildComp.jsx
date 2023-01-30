@@ -10,7 +10,7 @@ export default function ChildComp(props) {
         alignItems: "center",
       }}
     >
-      <Button onClick={props.increamnerHandler}>Click here</Button>
+      <Button onClick={props.incrementHandler}>Click here</Button>
       <h3>Counter is {props.counter}</h3>
       <Button onClick={props.resetHandler}>Reset</Button>
     </div>

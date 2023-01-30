@@ -7,7 +7,7 @@ import ChildComp from './components/ChildComp';
 function App() {
   const [counter, setCounterNumber] = useState(0);
 
-  const increamnerHandler = () => {
+  const incrementHandler = () => {
     setCounterNumber(counter + 1);
   }
 
@@ -16,7 +16,7 @@ function App() {
   }
   return (
     <div className="container">
-      <ChildComp increamnerHandler={increamnerHandler} resetHandler={resetHandler} counter={counter} />
+      <ChildComp incrementHandler={incrementHandler} resetHandler={resetHandler} counter={counter} />
     </div>
   )
 }
