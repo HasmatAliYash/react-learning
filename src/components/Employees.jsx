@@ -1,9 +1,17 @@
-import React from "react";
+import React, { Component } from "react";
 import Table from "react-bootstrap/Table";
 
-export default function Employees(props) {
-  return (
-    <div>
+export default class Employees extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      employeesList: props.users,
+    };
+  }
+
+  render() {
+    return (
       <Table striped bordered hover size="sm">
         <thead>
           <tr>
@@ -13,7 +21,7 @@ export default function Employees(props) {
           </tr>
         </thead>
         <tbody>
-          {props.employees.map((user, index) => (
+          {this.state.employeesList.map((user, index) => (
             <tr key={index}>
               <td>{user.username}</td>
               <td>{user.address.city}</td>
@@ -22,6 +30,6 @@ export default function Employees(props) {
           ))}
         </tbody>
       </Table>
-    </div>
-  );
+    );
+  }
 }

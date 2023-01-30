@@ -1,9 +1,15 @@
-import React from "react";
+import React, { Component } from "react";
 import Table from "react-bootstrap/Table";
+export default class Users extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      users: props.users,
+    };
+  }
 
-export default function Users(props) {
-  return (
-    <div>
+  render() {
+    return (
       <Table striped bordered hover size="sm">
         <thead>
           <tr>
@@ -14,7 +20,7 @@ export default function Users(props) {
           </tr>
         </thead>
         <tbody>
-          {props.users.map((user, index) => (
+          {this.state.users.map((user, index) => (
             <tr key={index}>
               <td>{user.id}</td>
               <td>{user.name}</td>
@@ -24,6 +30,6 @@ export default function Users(props) {
           ))}
         </tbody>
       </Table>
-    </div>
-  );
+    );
+  }
 }
