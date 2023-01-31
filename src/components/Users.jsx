@@ -1,9 +1,18 @@
-import React from "react";
+import React, { Component } from "react";
+export default class Users extends Component {
+  constructor(props) {
+    super(props);
 
-export default function Users() {
-  return (
-    <div>
-      <h1>This is Users Component</h1>
-    </div>
-  );
+    this.state = {
+      details: "This is Users Component",
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>{this.state.details}</h1>
+      </div>
+    );
+  }
 }

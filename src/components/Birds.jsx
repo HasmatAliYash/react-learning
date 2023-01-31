@@ -1,9 +1,19 @@
-import React from "react";
+import React, { Component } from "react";
 
-export default function Birds() {
-  return (
-    <div>
-      <h1>This is Birds Component</h1>
-    </div>
-  );
+export default class Birds extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      details: "This is Birds Component",
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>{this.state.details}</h1>
+      </div>
+    );
+  }
 }

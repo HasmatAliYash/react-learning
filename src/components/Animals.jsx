@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { Component } from "react";
 
-export default function Animals() {
-  return (
-    <div>
-      <h1>This is Animals Component</h1>
-    </div>
-  )
+export default class Animals extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      detail: "This is Animals Component",
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>{this.state.detail}</h1>
+      </div>
+    );
+  }
 }
+
