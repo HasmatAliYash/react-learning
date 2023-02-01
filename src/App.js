@@ -1,31 +1,40 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 import './App.css';
-import Animals from './components/Animals';
-import Birds from './components/Birds';
 import Employees from './components/Employees';
-import LivingThings from './components/LivingThings';
-import Users from './components/Users';
+import Photos from './components/Photos';
 
 function App() {
   return (
     <div className="container">
       <div className="row mb-5">
-        <h3>React Router DOM Example</h3>
       </div>
       <div className="row">
-        <div className="col-3 border">
-          <LivingThings />
-        </div>
-        <div className="col-9 border">
+
+        <ul style={{ listStyle: "none", fontSize: "24px", display: 'flex' }}>
+          <li>
+            <Button style={{ background: "#fff"}}>
+              <Link to="photos">Photos</Link>
+            </Button>
+          </li>
+          <li style={{ marginLeft: '20px' }}>
+            <Button style={{ background: "#fff" }}>
+              <Link to="employees">Employees</Link>
+            </Button>
+          </li>
+        </ul>
+
+
+        <div className="row">
           <Routes>
-            <Route path="/users" element={<Users></Users>}></Route>
-            <Route path="/birds" element={<Birds></Birds>}></Route>
-            <Route path="/employees" element={<Employees></Employees>}></Route>
-            <Route path="/animals" element={<Animals></Animals>}></Route>
+            <Route path="/photos" element={<Photos />}></Route>
+            <Route path="/employees" element={<Employees />}></Route>
           </Routes>
         </div>
+
       </div>
     </div >
   )

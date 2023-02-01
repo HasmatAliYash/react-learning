@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import Table from "react-bootstrap/Table";
-export default class Employees extends Component {
+
+export default class Photos extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      type: "Employee",
+      type: "photos",
       data: [],
-      update: true,
     };
   }
 
@@ -20,21 +20,21 @@ export default class Employees extends Component {
   render() {
     return (
       <>
-        <h2 className="text-center">Employees Table</h2>
+        <h2 className="text-center">Photo Table</h2>
         <Table striped bordered hover>
           <thead>
             <tr>
               <th>First Name</th>
-              <th>Last Name</th>
-              <th>Email</th>
+              <th>Profile Photo</th>
             </tr>
           </thead>
           <tbody>
-            {this.state.data.map((employee) => (
-              <tr key={employee.id}>
-                <td>{employee.first_name}</td>
-                <td>{employee.last_name}</td>
-                <td>{employee.email}</td>
+            {this.state.data.map((user) => (
+              <tr key={user.id}>
+                <td>{user.first_name}</td>
+                <td>
+                  <img src={user.avatar} alt="avtar" />
+                </td>
               </tr>
             ))}
           </tbody>
