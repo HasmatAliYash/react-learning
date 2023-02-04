@@ -1,10 +1,13 @@
-import Kingdom from './components/Kingdom/Kingdom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import LoginComponent from './components/LoginComponent';
 
 function App() {
   return (
-    <Kingdom />
+    <div className="container-fluid">
+      <LoginComponent />
+    </div>
+
   );
 }
 
