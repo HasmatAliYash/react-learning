@@ -10,7 +10,7 @@ export default function LoginComponent() {
             <form>
               <div class="form-group mb-4 mt-4">
                 <input
-                  type="email"
+                  type="text"
                   class="form-control form-control-lg"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
