@@ -5,18 +5,20 @@ export default function LoginComponent() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [errors, setError] = useState({})
 
   const submitForm = (e) => {
     e.preventDefault();
+  setError(validate(username,password)); 
     isAuthenticate(username, password).then((data) => {
       localStorage.setItem("authenticationTokenName", data.token);
       localStorage.getItem("authenticationTokenName");
-      if (data.token == null) {
+      if (data.token == null || password !== "cityslicka" || username !== "eve.holt@reqres.in") {
         return false;
       } else {
         navigate("/dashboard");
         return true;
-      }
+        }
     });
   };
   return (
@@ -36,7 +38,10 @@ export default function LoginComponent() {
                   placeholder="Enter Username"
                   onChange={(e) => setUsername(e.target.value)}
                 />
+                     {errors.userName && <p className="errorsAllign">{errors.userName}</p>}
+                 
               </div>
+                
               <div className="form-group mb-4">
                 <input
                   name="password"
@@ -46,7 +51,10 @@ export default function LoginComponent() {
                   placeholder="Password"
                   onChange={(e) => setPassword(e.target.value)}
                 />
+                 {errors.userPassword && <p className="errorsAllign">{errors.userPassword}</p>}
               </div>
+              
+             
               <button type="submit" className="btn btn-primary">
                 Login
               </button>
@@ -103,3 +111,23 @@ export const isAuthenticate = (userName, userPassword) => {
       });
   });
 };
+
+export const validate = (userName, userPassword) => {
+
+  let errors ={}
+  if(!userName){
+    errors.userName = "Please enter Username"
+  }else if(userName !== "eve.holt@reqres.in"){
+    errors.userName = "Please enter correct Username"
+  }
+  if(!userPassword){
+    errors.userPassword = "Please enter Password"
+  }else if(userPassword !== "cityslicka"){
+    errors.userPassword = "Please enter correct Password"
+  }
+   errors = {
+    userName: errors.userName,
+    userPassword: errors.userPassword,
+  };
+  return errors;
+}
