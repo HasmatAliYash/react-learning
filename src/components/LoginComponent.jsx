@@ -1,12 +1,12 @@
-
 import "../App.css";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 export default function LoginComponent() {
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-   const submitForm = (e) => {
+  const submitForm = (e) => {
     e.preventDefault();
     isAuthenticate(username, password).then((data) => {
       localStorage.setItem("authenticationTokenName", data.token);
@@ -14,12 +14,10 @@ export default function LoginComponent() {
       if (data.token == null) {
         return false;
       } else {
+        navigate("/dashboard");
         return true;
-      
       }
-      
     });
-    
   };
   return (
     <div className="login-container">
@@ -41,7 +39,7 @@ export default function LoginComponent() {
               </div>
               <div className="form-group mb-4">
                 <input
-                name="password"
+                  name="password"
                   type="password"
                   className="form-control form-control-lg"
                   id="exampleInputPassword1"
@@ -104,4 +102,4 @@ export const isAuthenticate = (userName, userPassword) => {
         reject(error);
       });
   });
-}
+};

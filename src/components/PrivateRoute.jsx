@@ -1,12 +1,18 @@
-import React from 'react';
-import { Outlet,Navigate } from 'react-router-dom';
-import {isAuthenticate} from "./LoginComponent"
+import React from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Privateroute = () =>{
+const Privateroute = (props) => {
+  console.log(localStorage.getItem("authenticationTokenName"));
+  const { Component } = props;
+  const navigate = useNavigate();
+  useEffect(() => {
+    let token = localStorage.getItem("authenticationTokenName");
+    if (!token) {
+      navigate("/login");
+    }
+  });
+  return <Component></Component>;
+};
 
-    let loggedIn = false;
-    return loggedIn ?  <Outlet/> : <Navigate to = {"/login"}/>
-   
-}
-
-export default Privateroute
+export default Privateroute;

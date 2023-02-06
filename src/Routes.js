@@ -7,11 +7,13 @@ import Privateroute from "./components/PrivateRoute";
 export default class RoutesComp extends Component {
   render() {
     return (
+
       <Routes>
+        <Route element={<LoginComponent />} path="/"></Route>
         <Route element={<LoginComponent />} exact path="/login"></Route>
-        <Route element={<Privateroute />} exact path="/dashboard">
-          <Route element={<Dashboard />} exact path=""></Route>
-        </Route>
+        <Route path="dashboard" element={<Privateroute Component={Dashboard} />}></Route>
+        <Route path="dashboard" element={<Privateroute Component={Dashboard} />}></Route>
+        <Route path="dashboard" element={<Privateroute Component={Dashboard} />}></Route>
       </Routes>
     );
   }

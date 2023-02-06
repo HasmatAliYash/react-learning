@@ -1,12 +1,11 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
-import LoginComponent from "./components/LoginComponent";
+// import LoginComponent from "./components/LoginComponent";
 import RoutesComp from "./Routes";
 
 function App() {
   return (
-    <div className="App">
-      {/* <LoginComponent /> */}
+    <div className="container-fluid">
       <div className="renderRoutes">
         <RoutesComp />
       </div>
