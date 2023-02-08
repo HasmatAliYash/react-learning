@@ -16,7 +16,7 @@ export default function LoginComponent() {
       if (data.token == null || password !== "cityslicka" || username !== "eve.holt@reqres.in") {
         return false;
       } else {
-        navigate("/dashboard");
+        navigate("/home/userstable");
         return true;
         }
     });

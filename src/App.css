@@ -1,6 +1,7 @@
 .container-fluid {
   background: #e0e5ef;
   min-height: 100vh;
+  padding: 15px 30px;
 }
 
 .login-container {
@@ -28,6 +29,7 @@
   font-size: 40px;
   font-weight: 700;
   display: inline-block;
+  text-align: center;
 }
 
 .App-logo {
@@ -38,6 +40,23 @@
 .btn-outline-primary,
 .btn-outline-danger {
   width: 200px;
+}
+.main-content {
+  width: 100%;
+  height: 100vh;
+}
+
+.sidenav {
+  position: relative;
+  width: 300px;
+  height: 100vh;
+}
+
+.content-area {
+  position: absolute;
+  width: calc(100% - 440px);
+  height: 100vh;
+  margin-left: 320px;
 }
 
 .sidenav,
@@ -51,13 +70,107 @@
   -moz-box-shadow: 0px 1px 15px -3px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 1px 7px -3px rgb(0 0 0 / 75%);
 }
-.content-area {
-  margin-left: 30px;
+
+.header-item {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+  border: 1px solid #f1f1f1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0px 1px 7px -3px rgb(0 0 0 / 75%);
+}
+.header-item:hover {
+  box-shadow: 0px 1px 7px -3px rgb(0 0 0 / 75%);
+}
+
+.user-profile {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid #d9d9d9;
+}
+.user-name {
+  font-size: 18px;
+  vertical-align: middle;
+  font-weight: 600;
+  margin-left: 14px;
+}
+
+.sidebarNavItems {
+  display: block;
+  color: #6d6868;
+  font-size: 18px;
+  padding: 6px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+}
+.sidebarNavItems:hover {
+  border-radius: 10px;
+  background: #eaf2ff;
+}
+.is-active {
+  border-radius: 10px;
+  background: #eaf2ff;
+  padding: 0;
+}
+ul {
+  list-style: none;
+  padding: 5px 20px;
+}
+ul a {
+  text-decoration: none;
 }
 
 .errorsAllign {
   text-align: left;
   color: red;
+}
+
+.tiles {
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  border: 1px solid #d1d1d1;
+  width: 400px;
+  height: 250px;
+  border-radius: 15px;
+  padding: 10px 15px;
+  margin-bottom: 30px;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.55);
+}
+
+.catagory {
+  background: #65bdd88c;
+  padding: 5px 10px;
+  border-radius: 14px;
+}
+.item {
+  color: #3c73b0;
+  font-weight: 500;
+  margin-top: 12px;
+}
+.description{
+  font-size: 10px;
+}
+
+.discount-price {
+  font-size: 20px;
+  color: #3c73b0;
+  font-weight: 500;
+  margin-right: 20px;
+}
+.price {
+  text-decoration: line-through;
+  font-size: 14px;
+  color: #c1c1c1;
+  font-weight: 500;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -89,5 +202,3 @@
     transform: rotate(360deg);
   }
 }
-
-
