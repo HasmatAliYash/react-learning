@@ -69,6 +69,7 @@ export default function Sidebar() {
           />{" "}
           Users Manager
         </li>
+        <hr />
 
         <ul style={{ padding: "20px" }}>
           <NavLink
@@ -77,7 +78,7 @@ export default function Sidebar() {
               isActive ? "sidebarNavItems is-active" : "inactive"
             }
           >
-            <li className="sidebarNavItems">Users List</li>
+            <li className="sidebarNavItems">Users List</li>            
           </NavLink>
 
           <NavLink

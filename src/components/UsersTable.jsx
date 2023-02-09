@@ -4,6 +4,7 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 import Pagination from "react-bootstrap/Pagination";
 import Modal from "react-bootstrap/Modal";
 import GoogleMap from "./GoogleMap";
+import { NavLink } from "react-router-dom";
 
 export default class UsersTable extends Component {
   constructor(props) {
@@ -36,8 +37,9 @@ export default class UsersTable extends Component {
     this.setState({ show: true });
   };
 
-  componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users")
+  getUsersData() {
+    const URL = "https://jsonplaceholder.typicode.com/users";
+    fetch(URL)
       .then((response) => response.json())
       .then((response) => {
         console.log(response);
@@ -45,47 +47,59 @@ export default class UsersTable extends Component {
       });
   }
 
+  componentDidMount() {
+    this.getUsersData();
+  }
+
   render() {
     return (
       <>
         <h4>User Manager</h4>
         <hr />
-        <Table borderless>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Username</th>
-              <th>Email</th>
-              <th>City</th>
-              <th>Zipcode</th>
-              <th>Locate on Map</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.usersList.map((user, index) => (
-              <tr key={index}>
-                <td>{user.id}</td>
-                <td>{user.name}</td>
-                <td>{user.username}</td>
-                <td>{user.email}</td>
-                <td>{user.address.city}</td>
-                <td>{user.address.zipcode}</td>
-                <td>
-                  <FaMapMarkerAlt
-                    style={{ cursor: "pointer" }}
-                    color="red"
-                    size="25"
-                    onClick={() => {
-                      this.handleShow(user.address.geo);
-                    }}
-                  />
-                </td>
-                {/* <td>{user.address.geo}</td> */}
+
+        {this.state.usersList.length === 0 && (
+          <img height="100" width="100" src="./../loader.gif" alt="loader" />
+        )}
+        {this.state.usersList.length > 0 && (
+          <Table borderless>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>City</th>
+                <th>Zipcode</th>
+                <th>Locate on Map</th>
               </tr>
-            ))}
-          </tbody>
-        </Table>
+            </thead>
+            <tbody>
+              {this.state.usersList.map((user, index) => (
+                <tr key={index}>
+                  <td>{user.id}</td>
+                  <td>
+                    <NavLink to="../adduser" >{user.name}</NavLink>{" "}
+                  </td>
+                  <td>{user.username}</td>
+                  <td>{user.email}</td>
+                  <td>{user.address.city}</td>
+                  <td>{user.address.zipcode}</td>
+                  <td>
+                    <FaMapMarkerAlt
+                      style={{ cursor: "pointer" }}
+                      color="red"
+                      size="25"
+                      onClick={() => {
+                        this.handleShow(user.address.geo);
+                      }}
+                    />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        )}
+
         <div className="d-flex justify-content-center">
           <Pagination>{this.state.items}</Pagination>
         </div>
