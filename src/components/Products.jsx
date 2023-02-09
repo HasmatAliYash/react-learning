@@ -14,8 +14,8 @@ export default class Products extends Component {
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
       .then((response) => {
-        console.log(response.splice(10, 4));
-        this.setState({ productList: response.splice(10, 4) });
+        console.log(response.splice(10,4));
+        this.setState({ productList: response.splice(10,4)});
       });
   }
 
@@ -49,8 +49,13 @@ export default class Products extends Component {
                 </span>
                 <span className="price">${product.price}</span>
                 <div>
-                  {[...Array(5)].map((elementInArray, index) => (
+                
+                  {
+                  
+                  [...Array(((product.rating.rate * 10)% 10) < 5 ? 4 : 5)].map((elementInArray, index) => (
+
                     <span className="" key={index}>
+                      
                       {/* <FaRegStar color="3c73b0"></FaRegStar> */}
                       <FaStar color="3c73b0"></FaStar>
                     </span>
