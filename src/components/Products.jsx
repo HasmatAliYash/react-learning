@@ -22,7 +22,18 @@ export default class Products extends Component {
   render() {
     return (
       <>
-        <h4>Add User</h4>
+        <h4 style={{ display: "inline-block", width: "72%" }}>Add User</h4>
+        <h6 style={{ display: "inline", color: "cornflowerblue" }}>
+          Show items per page:
+        </h6>
+        <button
+          className="btn dropdown-toggle"
+          type="button"
+          data-toggle="dropdown"
+        >
+          {4}
+          <span className="caret"></span>
+        </button>
         <hr />
         {this.state.productList.length === 0 && (
           <img height="100" width="100" src="./../loader.gif" alt="loader" />

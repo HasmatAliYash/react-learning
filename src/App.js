@@ -1,12 +1,12 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import PrivateRoutes from './PrivateRoutes';
+import PrivateRoutes from "./PrivateRoutes";
 
 function App() {
   return (
     <div className="container-fluid">
       <div className="renderRoutes">
-       <PrivateRoutes/>
+        <PrivateRoutes />
       </div>
     </div>
   );

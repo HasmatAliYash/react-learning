@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Table from "react-bootstrap/Table";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import Pagination from "react-bootstrap/Pagination";
 import Modal from "react-bootstrap/Modal";
 import GoogleMap from "./GoogleMap";
 import { NavLink } from "react-router-dom";
@@ -17,18 +16,10 @@ export default class UsersTable extends Component {
       show: false,
       lat: 0,
       lng: 0,
+      currentPage: 1, //Holds the value for the current page
+      loading: null, //Holds the value for the loading state.. can either be true or false
+      dataPerPage: 4, //Holds the value for the number of posts per page. You can adjust to suit your needs
     };
-
-    for (this.state.number = 1; this.state.number <= 5; this.state.number++) {
-      this.state.items.push(
-        <Pagination.Item
-          key={this.state.number}
-          active={this.state.number === this.state.active}
-        >
-          {this.state.number}
-        </Pagination.Item>
-      );
-    }
   }
 
   handleClose = () => this.setState({ show: false });
@@ -52,6 +43,30 @@ export default class UsersTable extends Component {
   }
 
   render() {
+    //Get currentPosts
+    const indexOfLastPost = this.state.currentPage * this.state.dataPerPage;
+    const indexOfFirstPost = indexOfLastPost - this.state.dataPerPage;
+    const currentData = this.state.usersList.slice(
+      indexOfFirstPost,
+      indexOfLastPost
+    );
+
+    //Implement page numbers
+    const pageNumbers = [];
+
+    for (
+      let i = 1;
+      i <= Math.ceil(this.state.usersList.length / this.state.dataPerPage);
+      i++
+    ) {
+      pageNumbers.push(i);
+    }
+
+    //Set current page
+    const setPage = (pageNum) => {
+      this.setState({ currentPage: pageNum });
+    };
+
     return (
       <>
         <h4>User Manager</h4>
@@ -74,11 +89,11 @@ export default class UsersTable extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.state.usersList.map((user, index) => (
+              {currentData.map((user, index) => (
                 <tr key={index}>
                   <td>{user.id}</td>
                   <td>
-                    <NavLink to="../adduser" >{user.name}</NavLink>{" "}
+                    <NavLink to="../adduser">{user.name}</NavLink>{" "}
                   </td>
                   <td>{user.username}</td>
                   <td>{user.email}</td>
@@ -100,10 +115,6 @@ export default class UsersTable extends Component {
           </Table>
         )}
 
-        <div className="d-flex justify-content-center">
-          <Pagination>{this.state.items}</Pagination>
-        </div>
-
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>
@@ -112,6 +123,23 @@ export default class UsersTable extends Component {
           </Modal.Header>
           <Modal.Body></Modal.Body>
         </Modal>
+        <div className="w-full flex justify-around justify-centerr">
+          {pageNumbers.map((pageNum, index) => (
+            <span
+              key={index}
+              className={
+                pageNum === this.state.currentPage
+                  ? "active cursor-pointer flex items-center justify-center w-12 h-12 border-2 rounded-full bg-blue-500 pagination"
+                  : "cursor-pointer flex items-center justify-center w-12 h-12 border-2 rounded-full pagination"
+              }
+              onClick={() => {
+                setPage(pageNum);
+              }}
+            >
+              {pageNum}
+            </span>
+          ))}
+        </div>
       </>
     );
   }

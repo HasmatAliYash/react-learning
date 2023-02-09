@@ -202,3 +202,22 @@ ul a {
     transform: rotate(360deg);
   }
 }
+
+.pagination 
+{
+  color: black;
+float: left;
+padding: 8px 16px;
+text-decoration: none;
+}
+
+.active{
+  background-color: cornflowerblue;
+    cursor: pointer;
+    border-radius: 10px
+}
+
+.justify-centerr{
+  display: flex;
+    justify-content: center;
+}
