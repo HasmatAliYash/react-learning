@@ -71,6 +71,11 @@ export default class AddUser extends React.Component {
     console.log("clicked");
   };
 
+  handleBack = (e) => {
+    window.history.back();
+    console.log("clicked");
+  };
+
   render() {
     return (
       <>
@@ -89,6 +94,16 @@ export default class AddUser extends React.Component {
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email: {this.state.user.email}</Form.Label>
                 </Form.Group>
+
+                <Button
+                  variant="secondary"
+                  type="button"
+                  onClick={(e) => {
+                    this.handleBack(e);
+                  }}
+                >
+                  Back
+                </Button>
               </Form>
             </div>
           )}
