@@ -17,14 +17,14 @@ export default class Products extends Component {
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
       .then((response) => {
-        this.setState({ productList: response.splice(10, 4) });
+        this.setState({ productList: response.splice(4, 4) });
       });
   }
   change(event) {
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
       .then((response) => {
-        this.setState({ productList: response.splice(10, event.target.value) });
+        this.setState({ productList: response.splice(4, event.target.value) });
       });
   }
 
@@ -61,12 +61,14 @@ export default class Products extends Component {
             {this.state.productList.map((product) => (
               <div key={product.id} className="row tiles">
                 <div className="col-4">
-                  <img
-                    style={{ height: "160px", width: "100px" }}
-                    src={product.image}
-                    alt={product.image}
-                    height="200px"
-                  />
+                  <div className="image-hover-zoom" scale="2.0">
+                    <img
+                      style={{ height: "160px", width: "100px" }}
+                      src={product.image}
+                      alt={product.image}
+                      height="200px"
+                    />
+                  </div>
                 </div>
                 <div className="col-8">
                   <span className="catagory">{product.category}</span>
