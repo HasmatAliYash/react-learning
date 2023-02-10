@@ -1,7 +1,6 @@
 import React from "react";
 import { FaSearch, FaBell, FaUser } from "react-icons/fa";
 import RoutesComp from "../Routes";
-// import RoutesComp from "../Routes";
 import Sidebar from "./Sidebar";
 
 const Dashboard = () => {

@@ -93,7 +93,7 @@ export default class UsersTable extends Component {
                 <tr key={index}>
                   <td>{user.id}</td>
                   <td>
-                    <NavLink to="../adduser">{user.name}</NavLink>{" "}
+                    <NavLink to={`../viewuser/${user.id}`}>{user.name}</NavLink>
                   </td>
                   <td>{user.username}</td>
                   <td>{user.email}</td>

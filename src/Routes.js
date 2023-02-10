@@ -13,6 +13,7 @@ export default class RoutesComp extends Component {
         <Route path="home" element={<Privateroute Component={Home} path="home" />}></Route>
         <Route path="userstable" element={<Privateroute Component={UsersTable} />}></Route>
         <Route path="adduser" element={<Privateroute Component={AddUser} />}></Route>
+        <Route path="viewuser/:id" element={<Privateroute Component={AddUser} />}></Route>
         <Route path="products" element={<Privateroute Component={Products} />}></Route>
       </Routes>
     );
