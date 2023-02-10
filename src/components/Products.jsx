@@ -1,5 +1,7 @@
+import "../App.css";
 import React, { Component } from "react";
 import { FaRegStar, FaStar } from "react-icons/fa";
+import Dropdown from "react-bootstrap/Dropdown";
 
 export default class Products extends Component {
   constructor(props) {
@@ -22,11 +24,27 @@ export default class Products extends Component {
   render() {
     return (
       <>
-        <h4 style={{ display: "inline-block", width: "72%" }}>Add User</h4>
-        <h6 style={{ display: "inline", color: "cornflowerblue" }}>
-          Show items per page:
-        </h6>
-        <button
+        <h4 className="userAllign">Add User</h4>
+        <h6 className="addedUser">Show items per page:</h6>
+        <Dropdown className="dropDownAllign">
+          <Dropdown.Toggle
+            className="txtColor"
+            variant="Secondary"
+            id="dropdown-basic"
+          >
+            {4}
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item className="txtColor" href="#/action-1">
+              {6}
+            </Dropdown.Item>
+            <Dropdown.Item className="txtColor" href="#/action-2">
+              {8}
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+        {/* <button
           className="btn dropdown-toggle"
           type="button"
           data-toggle="dropdown"
@@ -34,6 +52,14 @@ export default class Products extends Component {
           {4}
           <span className="caret"></span>
         </button>
+        <ul className="dropdown-menu">
+          <li>
+            <a href="#">6</a>
+          </li>
+          <li>
+            <a href="#">8</a>
+          </li>
+        </ul> */}
         <hr />
         {this.state.productList.length === 0 && (
           <img height="100" width="100" src="./../loader.gif" alt="loader" />

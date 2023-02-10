@@ -11,6 +11,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .login-box {
   background: #e2e8f0;
   border: 2px solid #d9d9d9;
@@ -41,6 +42,7 @@
 .btn-outline-danger {
   width: 200px;
 }
+
 .main-content {
   width: 100%;
   height: 100vh;
@@ -63,7 +65,6 @@
 .content-area {
   background: #fff;
   min-height: 100vh;
-  height: auto;
   border: 1px solid #f1f1f1;
   border-radius: 20px;
   padding: 20px;
@@ -85,6 +86,7 @@
   cursor: pointer;
   box-shadow: 0px 1px 7px -3px rgb(0 0 0 / 75%);
 }
+
 .header-item:hover {
   box-shadow: 0px 1px 7px -3px rgb(0 0 0 / 75%);
 }
@@ -95,6 +97,7 @@
   border-radius: 50%;
   border: 1px solid #d9d9d9;
 }
+
 .user-name {
   font-size: 18px;
   vertical-align: middle;
@@ -112,19 +115,23 @@
   align-items: center;
   cursor: pointer;
 }
+
 .sidebarNavItems:hover {
   border-radius: 10px;
   background: #eaf2ff;
 }
+
 .is-active {
   border-radius: 10px;
   background: #eaf2ff;
   padding: 0;
 }
+
 ul {
   list-style: none;
   padding: 5px 20px;
 }
+
 ul a {
   text-decoration: none;
 }
@@ -136,10 +143,10 @@ ul a {
 
 .tiles {
   display: flex;
-  justify-content:center;
-  align-items:center;
+  justify-content: center;
+  align-items: center;
   border: 1px solid #d1d1d1;
-  width: 400px;
+  width: 380px;
   height: 250px;
   border-radius: 15px;
   padding: 10px 15px;
@@ -152,12 +159,14 @@ ul a {
   padding: 5px 10px;
   border-radius: 14px;
 }
+
 .item {
   color: #3c73b0;
   font-weight: 500;
   margin-top: 12px;
 }
-.description{
+
+.description {
   font-size: 10px;
 }
 
@@ -167,6 +176,7 @@ ul a {
   font-weight: 500;
   margin-right: 20px;
 }
+
 .price {
   text-decoration: line-through;
   font-size: 14px;
@@ -199,26 +209,49 @@ ul a {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-.pagination 
-{
+.pagination {
   color: black;
-float: left;
-padding: 8px 16px;
-text-decoration: none;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
 }
 
-.active{
+.active {
   background-color: cornflowerblue;
-    cursor: pointer;
-    border-radius: 10px
+  cursor: pointer;
+  border-radius: 10px
 }
 
-.justify-centerr{
+.justify-centerr {
   display: flex;
-    justify-content: center;
+  justify-content: center;
+}
+
+.dropDownAllign {
+  display:inline;
+  padding: 5px;
+  border: 2px solid cornflowerblue;
+  border-radius: 10px;
+
+}
+
+.userAllign {
+  display: inline-block;
+  width: 70%;
+}
+
+.addedUser {
+  display: inline;
+  color: cornflowerblue;
+  margin-right: 10px;
+}
+
+.txtColor {
+  color: cornflowerblue;
 }
