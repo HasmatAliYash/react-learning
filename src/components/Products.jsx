@@ -1,7 +1,6 @@
 import "../App.css";
 import React, { Component } from "react";
 import { FaRegStar, FaStar } from "react-icons/fa";
-import Dropdown from "react-bootstrap/Dropdown";
 
 export default class Products extends Component {
   constructor(props) {
@@ -9,15 +8,23 @@ export default class Products extends Component {
 
     this.state = {
       productList: [],
+      responseVar: "",
     };
+    this.change = this.change.bind(this);
   }
 
   componentDidMount() {
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
       .then((response) => {
-        console.log(response.splice(10, 4));
         this.setState({ productList: response.splice(10, 4) });
+      });
+  }
+  change(event) {
+    fetch("https://fakestoreapi.com/products")
+      .then((response) => response.json())
+      .then((response) => {
+        this.setState({ productList: response.splice(10, event.target.value) });
       });
   }
 
@@ -26,40 +33,25 @@ export default class Products extends Component {
       <>
         <h4 className="userAllign">Add User</h4>
         <h6 className="addedUser">Show items per page:</h6>
-        <Dropdown className="dropDownAllign">
-          <Dropdown.Toggle
-            className="txtColor"
-            variant="Secondary"
-            id="dropdown-basic"
-          >
-            {4}
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu>
-            <Dropdown.Item className="txtColor" href="#/action-1">
-              {6}
-            </Dropdown.Item>
-            <Dropdown.Item className="txtColor" href="#/action-2">
-              {8}
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-        {/* <button
-          className="btn dropdown-toggle"
-          type="button"
-          data-toggle="dropdown"
+        <select
+          className="dropDownAllign txtColor"
+          id="lang"
+          onChange={this.change}
+          value={this.state.value}
         >
-          {4}
-          <span className="caret"></span>
-        </button>
-        <ul className="dropdown-menu">
-          <li>
-            <a href="#">6</a>
-          </li>
-          <li>
-            <a href="#">8</a>
-          </li>
-        </ul> */}
+          <option className="txtColor" value="4">
+            {4}
+          </option>
+          <option className="txtColor" value="6">
+            {6}
+          </option>
+          <option className="txtColor" value="8">
+            {8}
+          </option>
+        </select>
+        <p></p>
+        <p>{this.state.value}</p>
+
         <hr />
         {this.state.productList.length === 0 && (
           <img height="100" width="100" src="./../loader.gif" alt="loader" />
