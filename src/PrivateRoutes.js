@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "./components/Home";
-import LoginComponent from "./components/LoginComponent";
-import Privateroute from "./components/PrivateRoute";
+import Home from "./components/Layout/Home";
+import LoginComponent from "./components/Core/LoginComponent";
+import Privateroute from "./components/Core/PrivateRoute";
 
 export default class PrivateRoutes extends Component {
   render() {

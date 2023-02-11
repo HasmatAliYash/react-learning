@@ -14,7 +14,7 @@ import { NavLink } from "react-router-dom";
 export default function Sidebar() {
   return (
     <div>
-      <img className="user-profile" src="../user.png" alt="" />
+      <img className="user-profile" src="../../user.png" alt="" />
       <span className="user-name"> George</span>
       <hr style={{ heiborderght: "2px solid #c1c1c1" }} />
       <ul>

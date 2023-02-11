@@ -32,7 +32,7 @@ export default class Products extends Component {
   render() {
     return (
       <>
-        <h4 className="userAllign">Add User</h4>
+        <h4 className="userAllign">Produts List</h4>
         <h6 className="addedUser">Show items per page:</h6>
         <select
           className="dropDownAllign txtColor"

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Table from "react-bootstrap/Table";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import Modal from "react-bootstrap/Modal";
-import GoogleMap from "./GoogleMap";
+import GoogleMap from "../Util/GoogleMap";
 import { NavLink } from "react-router-dom";
 
 export default class UsersTable extends Component {

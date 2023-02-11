@@ -123,6 +123,8 @@ body {
 .sidebarNavItems:hover {
   border-radius: 10px;
   background: #eaf2ff;
+  margin-left: 5px;
+  transition: 0.3s;
 }
 
 .is-active {
