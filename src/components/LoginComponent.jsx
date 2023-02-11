@@ -92,7 +92,6 @@ export const isAuthenticate = (userName, userPassword) => {
     email: userName,
     password: userPassword,
   };
-  console.log("userData", userData);
   return new Promise((resolve, reject) => {
     fetch(BaseUrl, {
       method: "POST",

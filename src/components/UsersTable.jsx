@@ -33,7 +33,6 @@ export default class UsersTable extends Component {
     fetch(URL)
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
         this.setState({ usersList: response });
       });
   }
@@ -73,7 +72,7 @@ export default class UsersTable extends Component {
         <hr />
 
         {this.state.usersList.length === 0 && (
-          <img height="100" width="100" src="./../loader.gif" alt="loader" />
+          <img className="loader" height="100" width="100" src="./../loader.gif" alt="loader" />
         )}
         {this.state.usersList.length > 0 && (
           <Table borderless>

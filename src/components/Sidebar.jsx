@@ -69,7 +69,7 @@ export default function Sidebar() {
           />{" "}
           Users Manager
         </li>
-        <hr />
+        <hr className="m-0" />
 
         <ul style={{ padding: "20px" }}>
           <NavLink

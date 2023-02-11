@@ -18,7 +18,6 @@ export default class AddUser extends React.Component {
     fetch(`https://jsonplaceholder.typicode.com/users/${userID}`)
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
         this.setState({ user: response });
       });
   }
@@ -39,7 +38,6 @@ export default class AddUser extends React.Component {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         alert(`User added successfully, ID:- ${data.id}`);
       })
       .catch((err) => {
@@ -60,7 +58,6 @@ export default class AddUser extends React.Component {
   submitHandler(event) {
     event.preventDefault();
     this.adduser();
-    console.log("form date", this.state);
   }
 
   handleFormReset = (e) => {
@@ -68,12 +65,10 @@ export default class AddUser extends React.Component {
       username: "",
       password: "",
     });
-    console.log("clicked");
   };
 
   handleBack = (e) => {
     window.history.back();
-    console.log("clicked");
   };
 
   render() {

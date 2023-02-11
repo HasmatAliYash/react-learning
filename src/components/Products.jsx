@@ -1,6 +1,7 @@
 import "../App.css";
 import React, { Component } from "react";
 import { FaRegStar, FaStar } from "react-icons/fa";
+import ImageHoverZoom from "./Util/ImageHoverZoom";
 
 export default class Products extends Component {
   constructor(props) {
@@ -54,7 +55,7 @@ export default class Products extends Component {
 
         <hr />
         {this.state.productList.length === 0 && (
-          <img height="100" width="100" src="./../loader.gif" alt="loader" />
+          <img className="loader" height="100" width="100" src="./../loader.gif" alt="loader" />
         )}
         {this.state.productList.length > 0 && (
           <div className="row d-flex justify-content-around">
@@ -62,12 +63,13 @@ export default class Products extends Component {
               <div key={product.id} className="row tiles">
                 <div className="col-4">
                   <div className="image-hover-zoom" scale="2.0">
-                    <img
+                    <ImageHoverZoom imagePath={product.image}/>
+                    {/* <img
                       style={{ height: "160px", width: "100px" }}
                       src={product.image}
                       alt={product.image}
                       height="200px"
-                    />
+                    /> */}
                   </div>
                 </div>
                 <div className="col-8">

@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Privateroute = (props) => {
-  console.log(localStorage.getItem("authenticationTokenName"));
   const { Component } = props;
   const navigate = useNavigate();
   useEffect(() => {
